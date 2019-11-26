@@ -1,0 +1,84 @@
+@mixin transition($in) {
+	transition:$in;
+	-webkit-transition:$in;
+	-moz-transition:$in;
+	-o-transition:$in;
+	-ms-transition:$in;
+}
+@mixin transform($in) {
+	transform:$in;
+	-webkit-transform:$in;
+	-moz-transform:$in;
+	-o-transform:$in;
+	-ms-transform:$in;
+}
+@mixin animation($in) {
+	animation:$in;
+	-webkit-animation:$in;
+	-moz-animation:$in;
+	-o-animation:$in;
+	-ms-animation:$in;
+}
+
+.navbar{
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding: 2rem;
+}
+
+.nav-btn {
+	outline:none;
+	border:none;
+	padding:1rem;
+	display:block;
+	margin: 0.5rem auto;
+	cursor:pointer;
+	font-size: 1.6rem;
+  background-color:transparent;
+  color: white;
+	position:relative;
+	border:2px solid #fff;
+
+	@include transition(all 0.5s ease);
+}
+
+.animate1 {
+	color:#fff;
+  border-color:transparent;
+  text-decoration: none;
+
+	&:before {
+		width:0;
+		height:3px;
+		content:" ";
+		background-color:darkorange;
+		position:absolute;
+		top:0;
+		left:50%;
+
+		@include transition(all 0.3s ease);
+	}
+
+	&:after {
+		@extend .animate1:before;
+		top:100%;
+	}
+
+	&:hover {
+		letter-spacing:8px;
+		color:darkorange;
+
+		&:before {
+			width:100%;
+			left:0;
+		}
+		&:after {
+			width:100%;
+			left:0;
+		}
+	}
+}
+
+
+

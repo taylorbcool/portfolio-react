@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+  background-image: url(../images/lvskyline.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body{
+	font-size: 62.5%;
+}
+
+.jumbotron{
+  height: 85.25vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.jumbotron h1{
+	color: white;
+	font-size: 5rem;
+}
+
+.jumbotron p{
+	color: whitesmoke;
+	font-size: 3rem;
+}
