@@ -1,0 +1,23 @@
+.work{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem auto;
+    width: 80%;
+
+    h5{
+        font-size: 2rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.work-img{
+    width: 100%;
+    margin: 1rem auto;
+}

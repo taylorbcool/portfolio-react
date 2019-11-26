@@ -1,82 +1,33 @@
 import React, { useState } from 'react';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
+import '../styles/Work.scss'
 import meishi from '../images/meishi.png';
 import nba from '../images/nbaBuild.png';
 import urbanBottle from '../images/urbanBottle.png';
 
-const items = [
-    {
-      src: meishi,
-      header: 'Meishi',
-      altText: 'Landing page for Meishi react app.',
-      caption: `A react app that allows users to scan and collect others' cards`
-    },
-    {
-      src: nba,
-      header: 'NBA Career Longevity App',
-      altText: 'Landing page for NBA Career Longevity Predictor react app',
-      caption: `A react app for users to compare and predict NBA players' careers`
-    },
-    {
-      src: urbanBottle,
-      header: 'Urban Bottle Wine & Spirits',
-      altText: 'Landing page for Urban Bottle',
-      caption: 'Home page for Casper, Wyoming boutique liquor store and bar'
-    }
-  ];
-
 const Work = (props) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
-
-    const next = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-        setActiveIndex(nextIndex);
-    }
-
-    const previous = () => {
-        if (animating) return;
-        const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-        setActiveIndex(nextIndex);
-    }
-
-    const goToIndex = (newIndex) => {
-        if (animating) return;
-        setActiveIndex(newIndex);
-    }
-
-    const slides = items.map((item) => {
-    return (
-        <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-        >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.header} />
-        </CarouselItem>
-    );
-    })
-
-    return (
-        <Carousel
-            activeIndex={activeIndex}
-            next={next}
-            previous={previous}
-        >
-            <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-            {slides}
-            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-        </Carousel>
-    );
-  }
-  
+  return(
+    <div className='card'>
+      <h3>Recent Work</h3>
+      <p>This is my most recent work. Other projects can be found on my <a href='github.com/tayorbcool'>GitHub</a>.</p>
+      
+      <div className='work'>
+        <img className='work-img' src={meishi} alt='Meishi business card react app landing page' />
+        <h5>Meishi</h5>
+        <p>A react app in which users can create and share their personal business card by scanning QR codes associated with their card.</p>
+      </div>
+      
+      <div className='work'>
+        <img className='work-img' src={nba} alt='NBA Career Longevity Predictor react app landing page' />
+        <h5>NBA Career Longevity Predictor</h5>
+        <p>A react app that takes a given NBA player and estimates the outcome of the given player's career, as well as comparing them to other NBA players.</p>
+      </div>
+      
+      <div className='work'>
+        <img className='work-img' src={urbanBottle} alt='Homepage for Urban Bottle Wine and Spirits' />
+        <h5>{`Urban Bottle Wine & Spirits`}</h5>
+        <p>A marketing page for a Casper, WY based liquor store and bar.</p>
+      </div>
+    </div>
+  )
+}  
   export default Work;
